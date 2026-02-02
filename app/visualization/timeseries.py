@@ -2,7 +2,20 @@ import plotly.express as px
 from ..core.config import CLASS_COLORS
 
 def create_time_series_chart(df_long, selected_class, chart_title):
-    """Create time series line chart"""
+    """
+    Create a time series line chart for waste proportions.
+
+    Args:
+        df_long (pd.DataFrame): Long-format DataFrame with columns:
+            - 'datetime' / 'date' / 'week': time axis
+            - 'Class': waste class name
+            - 'Percentage': class proportion
+        selected_class (str): Class to display. Use "All" to show all classes.
+        chart_title (str): Title of the chart.
+
+    Returns:
+        plotly.graph_objs._figure.Figure: Interactive Plotly line chart.
+    """
     if selected_class == "All":
         fig = px.line(
             df_long,
@@ -28,7 +41,22 @@ def create_time_series_chart(df_long, selected_class, chart_title):
     return fig
 
 def prepare_time_series_data(df_hist, aggregation_mode):
-    """Prepare dataframe for time series visualization"""
+    """
+    Prepare historical analysis data for time series visualization.
+
+    Args:
+        df_hist (pd.DataFrame): Historical analysis records with datetime and class percentage columns.
+        aggregation_mode (str): Aggregation method. Options:
+            - "Raw (Per Image)": each image as a separate point.
+            - "Daily Average": average per day.
+            - "Weekly Average": average per week.
+
+    Returns:
+        tuple:
+            - df_agg (pd.DataFrame or None): Aggregated summary per day/week or None for raw.
+            - df_long (pd.DataFrame or None): Long-format DataFrame for plotting.
+              Columns: ['datetime'/'date'/'week', 'Class', 'Percentage', 'samples' (for daily/weekly)]
+    """
     from core.config import DB_CLASS_MAP
     
     percent_cols = [c for c in df_hist.columns if c.endswith("_percent")]

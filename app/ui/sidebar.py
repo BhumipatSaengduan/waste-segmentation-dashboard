@@ -2,7 +2,21 @@ import streamlit as st
 from ..core.config import CLASS_NAMES
 
 def render_sidebar(mode_options=["Single Image", "Batch"]):
-    """Render the sidebar with controls."""
+    """
+    Render the Streamlit sidebar with analysis controls.
+
+    Features:
+        - Select analysis mode (Single Image or Batch).
+        - Choose which mask classes to display.
+        - Set confidence threshold for detections.
+        - Upload image(s) depending on selected mode.
+
+    Args:
+        mode_options (list, optional): List of analysis mode options. Defaults to ["Single Image", "Batch"].
+
+    Returns:
+        tuple: (mode, visible_classes, conf_thres, uploaded_files)
+    """
     st.sidebar.header("Controls")
 
     # === MODE TOGGLE ===
@@ -30,7 +44,6 @@ def render_sidebar(mode_options=["Single Image", "Batch"]):
         step=0.05
     )
 
-    # File uploader based on mode
     if mode == "Single Image":
         uploaded = st.file_uploader(
             "Upload an image",

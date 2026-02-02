@@ -16,9 +16,22 @@ from ..db.database import save_to_db
 logger = get_logger("ui.log")
 
 def run_single_image_analysis(uploaded_files, model, conf_thres, visible_classes):
-    """Streamlit UI wrapper for single image analysis."""
+    """
+    Streamlit UI wrapper for single image analysis workflow.
 
-    # รองรับทั้งไฟล์เดียวและ list
+    Steps:
+        1. Run the single-image pipeline (preprocess, inference, postprocess, overlay).
+        2. Display image preview.
+        3. Render analysis results with overlays and class percentages.
+        4. Provide options to save results to database.
+        5. Provide options to export overlay image and JSON summary.
+
+    Args:
+        uploaded_files: Single or list of uploaded image files.
+        model: Trained YOLO model.
+        conf_thres (float): Confidence threshold for detections.
+        visible_classes (list): Classes to display in overlay visualization.
+    """
     files = uploaded_files if isinstance(uploaded_files, list) else [uploaded_files]
 
     for uploaded_file in files:

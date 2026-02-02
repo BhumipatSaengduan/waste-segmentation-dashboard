@@ -12,6 +12,21 @@ os.makedirs(LOG_DIR, exist_ok=True)
 # LOGGER FACTORY
 # =========================
 def get_logger(name: str) -> logging.Logger:
+    """
+    Create or retrieve a logger with file and console handlers.
+
+    The log file is selected based on the logger name prefix:
+      - "ui" -> ui.log
+      - "batch" -> batch.log
+      - "db" -> database.log
+      - others -> app.log
+
+    Args:
+        name (str): Name of the logger.
+
+    Returns:
+        logging.Logger: Configured logger instance.
+    """
     if name.startswith("ui"):
         filename = "ui.log"
     elif name.startswith("batch"):

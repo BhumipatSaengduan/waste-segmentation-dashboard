@@ -14,7 +14,19 @@ PAGE_SIZE = 20
 logger = get_logger("ui.history")
 
 def render_history_section():
-    """Render the historical records section with filters, export, and pagination."""
+    """
+    Render the historical records section in Streamlit with filters, pagination, and export.
+
+    Features:
+        - Filter records by waste class and date range.
+        - Paginate results (default 20 records per page).
+        - Display selected columns and percentages for visible classes.
+        - Export filtered records as CSV.
+    
+    Uses:
+        - st.session_state.history_page for pagination.
+        - DB_CLASS_MAP for class display mapping.
+    """
     st.divider()
     st.subheader("📂 Historical Records")
 

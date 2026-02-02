@@ -3,7 +3,17 @@ import streamlit as st
 from ..db.database import undo_last_save, clear_history
 
 def render_danger_zone():
-    """Render the danger zone section with destructive actions."""
+    """
+    Render the "Danger Zone" section in Streamlit with destructive actions.
+
+    Features:
+        - Undo the most recent saved record.
+        - Delete all analysis history.
+        - Requires confirmation before executing any action.
+
+    Uses:
+        st.session_state.confirm_action to track user confirmation.
+    """
     st.divider()
 
     st.markdown("""

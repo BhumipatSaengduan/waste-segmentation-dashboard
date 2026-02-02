@@ -18,7 +18,16 @@ PAGE_SIZE = 10
 logger = get_logger("ui.timeseries")
 
 def render_time_series_section():
-    """Render the temporal trends section with time series visualization."""
+    """
+    Render temporal trends section with time series visualization.
+
+    Features:
+        - Select aggregation mode: Raw, Daily, or Weekly averages.
+        - Choose waste class to visualize.
+        - Interactive Plotly chart of waste proportions over time.
+        - Paginated table of aggregated results.
+        - CSV export of current summary.
+    """
     st.divider()
     st.subheader("📈 Temporal Trends")
 

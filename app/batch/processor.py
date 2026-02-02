@@ -21,6 +21,20 @@ def run_batch(
     max_width: int,
     max_height: int,
 ):
+    """
+    Process a batch of images: prepare, run inference, post-process, and create overlays.
+
+    Args:
+        files (List): List of image files to process.
+        model: Trained model for inference.
+        conf_thres (float): Confidence threshold for detection.
+        visible_classes (list): Classes to include in overlay visualization.
+        max_width (int): Maximum image width for resizing.
+        max_height (int): Maximum image height for resizing.
+
+    Returns:
+        BatchResult: Summary of batch processing with per-image results.
+    """
     total_files = len(files)
     logger.info(f"Start batch processing | total_files={total_files} | conf={conf_thres}")
 

@@ -8,7 +8,15 @@ from ..core.logger import get_logger
 logger = get_logger("db.database")
 
 def save_to_db(image, image_hash, conf, percentages):
-    """Save a single analysis result into the database."""
+    """
+    Save a single analysis result to the database.
+
+    Args:
+        image (str): Image filename.
+        image_hash (str): SHA256 hash of the image.
+        conf (float): Model confidence score.
+        percentages (dict): Class-wise percentage of detected pixels.
+    """
     logger.info(f"Saving analysis result | image={image}")
 
     try:
@@ -49,7 +57,12 @@ def save_to_db(image, image_hash, conf, percentages):
         raise
 
 def load_history():
-    """Load all historical analysis records from the database."""
+    """
+    Load all historical analysis records from the database.
+
+    Returns:
+        pd.DataFrame: DataFrame containing all records, empty if load fails.
+    """
     logger.info("Loading analysis history")
 
     try:
@@ -71,7 +84,7 @@ def load_history():
         return pd.DataFrame()
 
 def undo_last_save():
-    """Remove the most recent analysis record."""
+    """"Remove the most recent analysis record from the database."""
     logger.info("Undo last save")
 
     try:

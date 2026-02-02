@@ -16,10 +16,24 @@ def render_analysis_result(
     idx
 ):
     """
+    Overlay segmentation masks on an RGB image.
+
+    Args:
+        image_rgb (np.ndarray): Original image in RGB format, shape (H, W, 3).
+        masks (np.ndarray): Boolean masks of detected objects, shape (N, H, W).
+        classes (np.ndarray): Array of class IDs corresponding to each mask, shape (N,).
+        visible_classes (list[str]): List of class names to display in the overlay.
+        class_names (list[str], optional): Mapping of class IDs to display names. Defaults to CLASS_NAMES.
+        class_colors (dict[str, str], optional): Hex colors for each class. Defaults to CLASS_COLORS.
+        alpha (float, optional): Transparency factor for overlay (0 = invisible, 1 = fully colored). Defaults to 0.4.
+
+    Returns:
+        np.ndarray: Image with colored mask overlay, dtype=np.uint8, shape (H, W, 3).
+    """
+    """
     Shared renderer for Single & Batch results
     idx: unique identifier for Streamlit keys
     """
-
     # === IMAGES ===
     c = st.columns([1, 2, 2, 1])
     c[1].image(

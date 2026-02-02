@@ -11,7 +11,22 @@ from ..visualization.renderer import render_analysis_result
 from ..db.database import save_to_db
 
 def run_batch_analysis(uploaded_files, model, conf_thres, visible_classes):
-    """Run batch analysis workflow."""
+    """
+    Run the full batch analysis workflow in Streamlit.
+
+    Steps:
+        1. Perform batch inference on uploaded images.
+        2. Display batch summary (total, success, failed).
+        3. Show results with overlays and dominant classes.
+        4. Provide download options for overlays (ZIP) and summary (JSON).
+        5. Save successful results to database.
+
+    Args:
+        uploaded_files: List of uploaded image files.
+        model: Trained YOLO model.
+        conf_thres (float): Confidence threshold for detections.
+        visible_classes (list): Classes to display in overlays.
+    """
     st.subheader("📦 Batch Processing")
     st.info("📦 Processing batch images...")
 

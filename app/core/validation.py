@@ -1,7 +1,16 @@
 import streamlit as st
 
 def validate_uploaded_files(files, max_size_mb: int):
-    """Validate uploaded file(s) size."""
+    """
+    Check uploaded file(s) do not exceed the maximum size.
+
+    Args:
+        files: Single file or list of uploaded files.
+        max_size_mb (int): Maximum allowed file size in megabytes.
+
+    Raises:
+        Stops Streamlit execution and shows error if a file exceeds the limit.
+    """
     if not files:
         return
 

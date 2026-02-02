@@ -3,7 +3,7 @@ import sqlite3
 from ..core.config import DB_PATH, IMAGE_SOURCE, MODEL_VERSION
 
 def create_tables():
-    """Initialize SQLite database and create history table if missing."""
+    """Initialize SQLite database and create the analysis_history table if missing."""
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("""
@@ -26,7 +26,7 @@ def create_tables():
     conn.close()
 
 def migrate_db():
-    """Add missing columns for traceability if not exist."""
+    """Add missing columns (source, model_version, image_hash) to the database if they do not exist."""
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
@@ -48,7 +48,7 @@ def migrate_db():
     conn.close()
 
 def backfill_metadata():
-    """Fill missing source and model_version for old records."""
+    """Fill missing source and model_version fields for existing records in the database."""
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 

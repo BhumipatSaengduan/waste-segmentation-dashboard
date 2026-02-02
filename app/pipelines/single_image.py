@@ -25,8 +25,25 @@ def run_single_image_pipeline(
     max_width=MAX_IMAGE_WIDTH,
     max_height=MAX_IMAGE_HEIGHT,
 ):
-    """Pure single-image analysis pipeline."""
+    """
+    Complete single-image analysis pipeline: prepare image, run inference,
+    post-process results, and create overlay.
 
+    Args:
+        uploaded_file: Uploaded file object from Streamlit.
+        model: Trained YOLO model.
+        conf_thres (float): Confidence threshold for detections.
+        visible_classes (list): Classes to include in overlay visualization.
+        max_width (int, optional): Maximum image width. Defaults to MAX_IMAGE_WIDTH.
+        max_height (int, optional): Maximum image height. Defaults to MAX_IMAGE_HEIGHT.
+
+    Returns:
+        SingleImageResult: Object containing processed image, overlay, 
+                           class percentages, dominant class, and timestamp.
+
+    Raises:
+        ValueError: If the image is invalid or no detection is found.
+    """
     try:
         # =========================
         # START PIPELINE

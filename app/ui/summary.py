@@ -5,7 +5,18 @@ from ..db.database import load_history
 from ..core.config import DB_CLASS_MAP
 
 def render_data_summary():
-    """Render the data summary section with key metrics."""
+    """
+    Render the data summary section in Streamlit with key metrics.
+
+    Features:
+        - Total number of images analyzed.
+        - Date and time of the latest analysis.
+        - Most frequent waste class across all records.
+
+    Uses:
+        - DB_CLASS_MAP for mapping column names to display names.
+        - load_history() to fetch historical analysis data.
+    """
     st.divider()
     st.subheader("📊 Data Summary")
 
