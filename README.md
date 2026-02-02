@@ -105,6 +105,8 @@ repo/
 └── .gitignore
 ```
 
+---
+
 ## ⚙️ Installation
 
 ### 1. Clone repository
