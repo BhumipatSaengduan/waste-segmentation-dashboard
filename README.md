@@ -112,7 +112,7 @@ repo/
 ### 1. Clone repository
 
 ```bash
-git clone <repo_url>
+git clone https://github.com/BhumipatSaengduan/waste-segmentation-dashboard.git
 cd waste-segmentation-dashboard
 ```
 ### 2. Create virtual environment
@@ -160,7 +160,7 @@ http://localhost:8501
 ## ⚡ Quick Start
 
 ```bash
-git clone <repo_url>
+git clone https://github.com/BhumipatSaengduan/waste-segmentation-dashboard.git
 cd waste-segmentation-dashboard
 python -m venv .venv
 .venv\Scripts\activate
