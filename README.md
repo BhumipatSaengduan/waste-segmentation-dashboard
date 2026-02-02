@@ -1,7 +1,7 @@
 
 # ♻️ Waste Segmentation & Analysis Dashboard
 
-An AI-powered waste segmentation and analytics dashboard built with **YOLOv8** and **Streamlit** for automated waste composition analysis and historical tracking.
+  An AI-powered waste segmentation and analytics dashboard built with **YOLOv8** and **Streamlit** for automated waste composition analysis and historical tracking.
 
 This project demonstrates an AI-powered system for automated waste composition analysis and visualization to support smart waste management.
 
