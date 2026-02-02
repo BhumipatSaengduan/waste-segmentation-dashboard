@@ -168,6 +168,8 @@ pip install -r requirements.txt
 streamlit run main.py
 ```
 
+---
+
 ## 🗄️ Database
 
 SQLite is used for:
