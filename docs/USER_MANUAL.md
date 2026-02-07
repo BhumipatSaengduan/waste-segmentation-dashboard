@@ -120,7 +120,7 @@ It identifies different waste classes such as Metal, Plastic, Paper & Cardboard,
 A: JPG, JPEG, PNG
 
 **Q: What is the analysis accuracy?**  
-A: 80.9% mAP on test dataset
+A: 80.9% Box mAP and 77.5% Mask mAP on test dataset.
 
 **Q: Can I hide certain classes in the overlay?**  
 A: Yes, select which classes to display in the sidebar under "Show Mask Classes".
